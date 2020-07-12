@@ -1,0 +1,33 @@
+.header-rav {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 15px 30px 5px 30px;
+    background-color: rgba($color: #74557e, $alpha: 0.05);
+    box-shadow: 0 0 5px 5px rgba($color: #74557e, $alpha: 0.05);
+    padding: 2px 20px 2px 20px;
+}
+
+.header-image-rav {
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.header-links-rav {
+    float: right;
+    display: flex;
+}
+
+.ul-li-rav {
+    margin: auto;
+    overflow: hidden;
+    padding: 12px 16px;
+}
+
+.header-link-button-rav {
+    text-decoration: none;
+}

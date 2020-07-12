@@ -3,15 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { Fabric } from '@fluentui/react'
-import BackgroundAnimation from './components/BackgroundAnimation'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <BackgroundAnimation />
-    <Fabric>
-      <App />
-    </Fabric>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

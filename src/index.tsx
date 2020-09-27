@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'office-ui-fabric-react/dist/css/fabric.css';
 
 
 ReactDOM.render(

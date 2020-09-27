@@ -1,44 +1,45 @@
-import { IImageProps, Image, FontSizes } from '@fluentui/react';
+import { IImageProps, Image, FontSizes, Stack, IStackTokens } from '@fluentui/react';
 import React from "react";
 import { Link } from 'react-router-dom';
 import { XtrudeIconSq } from '../core/resources/images/';
-import { Urls } from '../core/urls';
+import { IXLinks, URLS } from '../core/db/urls';
 import './style.scss';
 
 function Header() {
     const imageProps: IImageProps = {
         src: XtrudeIconSq,
-        height: '52px'
+        height: '48px',
+    }
+    const stackTokens: IStackTokens = {
+        childrenGap: 10,
+        padding: 10,
+    }
+
+    const LinkText = () => {
+        return (
+            <Stack horizontal tokens={stackTokens}>
+                {[URLS.home, URLS.products, URLS.services, URLS.about].map((link: IXLinks, index: number) => {
+                    return (
+                        <div className={"ms-Grid-col ms-sm12 ms-md3 ms-lg3 ul-li-rav"} key={link.id}>
+                            <Link to={link.path} className={"header-link-button-rav"}>{link.title}</Link>
+                        </div>
+                    )
+                })}
+            </Stack>
+        )
     }
 
     return (
-        <div className={"header-rav"}>
-            <div className={"header-image-rav"}>
-                <Image {...imageProps} />
-                <div style={{ fontSize: FontSizes.xxLarge, margin: "8px" }}>Xtrude Lab Private Limited</div>
-            </div>
-            <div className={"header-links-rav"}>
-                {/* {[Urls.home, Urls.products, Urls.services, Urls.about].map((item: string, index: number) => {
-                    return (
-                        <div className={"ul-li-rav"} key={index}>
-                            <Link to={item} className={"header-link-button-rav"}>{item}</Link>
-                        </div>
-                    )
-                })} */}
-                <div className="ul-li-rav">
-                    <Link to={Urls.home} className={"header-link-button-rav"}><div>Home</div></Link>
+        <div className={'ms-Grid header-rav'} dir={"ltr"}>
+            <div className={"ms-Grid-row"}>
+                <div className={'ms-Grid-col ms-sm12 ms-md12 ms-lg4'}>
+                    <Stack horizontal className={"ms-Grid-col ms-sm12 ms-md12"} tokens={stackTokens}>
+                        <Stack.Item align={"auto"}><Image {...imageProps} /></Stack.Item>
+                        <Stack.Item align={"auto"}><div style={{ fontSize: FontSizes.xLarge }} className={"ms-hiddenLgUp"}>Xtrude Lab Private Limited</div></Stack.Item>
+                    </Stack>
                 </div>
-                <div className="ul-li-rav">
-                    <Link to={Urls.products} className={"header-link-button-rav"}><div>Products</div></Link>
-                </div>
-                <div className="ul-li-rav">
-                    <Link to={Urls.services} className={"header-link-button-rav"}><div>Services</div></Link>
-                </div>
-                <div className="ul-li-rav">
-                    <Link to={Urls.about} className={"header-link-button-rav"}><div>About Us</div></Link>
-                </div>
-                <div className="ul-li-rav">
-                    <Link to={Urls.tc} className={"header-link-button-rav"}><div>Terms &amp; Conditions</div></Link>
+                <div className={'ms-Grid-col ms-sm12 ms-md12 ms-lgPush2 ms-lg6'}>
+                    <LinkText />
                 </div>
             </div>
         </div>

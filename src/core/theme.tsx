@@ -1,3 +1,4 @@
+import React, { createContext, useContext, FunctionComponent, ReactChild, ReactChildren, useState, ReactFragment, ReactPortal } from 'react'
 import { createTheme, ITheme } from '@fluentui/react'
 
 const customTheme: ITheme = createTheme({
@@ -31,4 +32,24 @@ const link = 'https://www.aka.ms/themedesigner'
 console.log(`Create You Own Theme Pallate at ${link}`)
 console.log(`Theme Value is ${customTheme.palette.themeLighter}`)
 
-export default customTheme
+type ThemeContextType = {
+    theme: string;
+    setTheme: (value: string) => void;
+};
+
+
+
+type Props = {
+    children: ReactChild | ReactFragment | ReactPortal | boolean | null | undefined
+}
+
+export default function ThemeProvider(props:Props) {
+    const [state, setState] = useState(0);
+    const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+    return (
+        <ThemeContext.Provider value={undefined}>
+            {props.children}
+        </ThemeContext.Provider>
+    )
+
+}

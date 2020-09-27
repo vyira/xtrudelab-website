@@ -8,18 +8,18 @@ import {
     ServicePage,
     TermsAndConditionsPage
 } from '../pages';
-import { Urls } from '../core/urls'
+import { URLS } from '../core/db/urls'
 
 function Body() {
     return (
         <React.Fragment>
             <Switch>
-                <Route exact path={Urls.home} component={HomePage} />
-                <Route path={Urls.products} component={ProductsPage} />
-                <Route path={Urls.services} component={ServicePage} />
-                <Route path={Urls.about} component={AboutPage} />
-                <Route path={Urls.tc} component={TermsAndConditionsPage} />
-                <Route path={Urls.noMatch} component={Page404} />
+                <Route exact path={URLS.home.path} component={HomePage} />
+                <Route path={URLS.products.path} component={ProductsPage} />
+                <Route path={URLS.services.path} component={ServicePage} />
+                <Route path={URLS.about.path} component={AboutPage} />
+                <Route path={URLS.terms.path} component={TermsAndConditionsPage} />
+                <Route path={URLS.noMatch.path} component={Page404} />
             </Switch>
         </React.Fragment>
     )
